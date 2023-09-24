@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickqeasy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <!-- Include Bootstrap CSS or your preferred CSS framework -->
+
+    <style>
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header img {
+            max-width: 100px; /* Adjust the maximum width of your logo */
+            margin-bottom: 10px; /* Add spacing below the logo */
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 0;
+        }
+
+        h5 {
+            font-size: 16px; /* Adjust the font size of the slogan */
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            overflow: hidden; /* Prevent scrolling on the index page */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 60px); /* Adjust the container height to account for the footer */
+        }
+
+        .icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px; /* Shift the icons up slightly */
+        }
+
+        .icons a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: color 0.3s;
+            font-size: 2rem; /* Make the icons larger */
+        }
+
+        .icons a:hover {
+            color: #007bff;
+        }
+
+        .icons span {
+            margin-top: 10px;
+            font-size: 14px; /* Adjust the font size of the text */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/static/logo.png" alt="Tickqeasy Logo">
+        <h1>Welcome to Tickqeasy</h1>
+        <h5>Where Every Ticket Tells a Story!</h5>
+    </header>
+    <div class="container">
+        <div class="icons">
+            <a href="/add_ticket">
+                <i class="fas fa-plus-circle fa-3x"></i>
+                <span>Add Ticket</span>
+            </a>
+            <a href="/delete_ticket">
+                <i class="fas fa-trash-alt fa-3x"></i>
+                <span>Delete Ticket</span>
+            </a>
+            <a href="/show_ticket">
+                <i class="fas fa-check-circle fa-3x"></i>
+                <span>Show Ticket</span>
+            </a>
+            <a href="/scan_qr_code">
+                <i class="fas fa-qrcode fa-3x"></i>
+                <span>Scan QR Code</span>
+            </a>
+
+            <a href="/verify_location">
+                <i class="fas fa-map-marker fa-3x"></i>
+                <span>Verify Location</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Tickqeasy
+    </footer>
+</body>
+</html>

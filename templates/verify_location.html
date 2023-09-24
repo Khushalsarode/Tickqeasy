@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Location Validation</h1>
+        <form action="/verify_location" method="POST">
+            <div class="form-group">
+                <label for="countryname">Country Name:</label>
+                <input type="text" id="countryname" name="countryname" required>
+            </div>
+            <div class="form-group">
+                <label for="statename">State Name:</label>
+                <input type="text" id="statename" name="statename" required>
+            </div>
+            <div class="form-group">
+                <label for="cityname">City Name:</label>
+                <input type="text" id="cityname" name="cityname" required>
+            </div>
+            <div class="form-group">
+                <label for="street_number">Street Number:</label>
+                <input type="text" id="street_number" name="street_number" >
+            </div>
+            <div class="form-group">
+                <label for="street_name">Street Name:</label>
+                <input type="text" id="street_name" name="street_name" >
+            </div>
+            <div class="form-group">
+                <label for="cross_street">Cross Street:</label>
+                <input type="text" id="cross_street" name="cross_street">
+            </div>
+            <div class="form-group">
+                <label for="Areaname">Area Name:</label>
+                <input type="text" id="Areaname" name="Areaname" required>
+            </div>
+            <div class="form-group">
+                <label for="postal_code">Postal Code:</label>
+                <input type="text" id="postal_code" name="postal_code" required>
+            </div>
+            <button type="submit">Validate Location</button>
+        </form>
+        {% if result %}
+        <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

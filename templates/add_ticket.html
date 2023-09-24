@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Ticket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div id="flash-messages" class="alert alert-success" style="text-align: center; color: green;">
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endwith %}
+        <h1>Add Ticket</h1>
+        <form action="/add_ticket" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="traveler_name">Traveler Name</label>
+                <input type="text" id="traveler_name" name="traveler_name" required>
+            </div>
+            <div class="form-group">
+                <label for="ticket_date">Date of Ticket</label>
+                <input type="date" id="ticket_date" name="ticket_date" required>
+            </div>
+            <div class="form-group">
+                <label for="departure_time">Time of Departure</label>
+                <input type="time" id="departure_time" name="departure_time" required>
+            </div>
+            <div class="form-group">
+                <label for="source_city">Source City</label>
+                <input type="text" id="source_city" name="source_city" required>
+            </div>
+            <div class="form-group">
+                <label for="destination_city">Destination City</label>
+                <input type="text" id="destination_city" name="destination_city" required>
+            </div>
+            <div class="form-group">
+                <label for="user_email">Your Email</label>
+                <input type="email" id="user_email" name="user_email" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="mode_of_travel">Mode of Travel</label>
+                <select id="mode_of_travel" name="mode_of_travel" required>
+                    <option value="MRSTC">MRSTC</option>
+                    <option value="Bus">Bus/Travel</option>
+                    <option value="Railway">Railway</option>
+                    <option value="Private Means">Private Means</option>
+                    <option value="Airplane">Airplane</option>
+                    <option value="Ship_Cruise">Ship/Cruise</option>
+                    <option value="Bus Monthly Pass">Bus Monthly Pass</option>
+                    <option value="Metro MonthlyPass">Metro MonthlyPass</option>
+                    <option value="Local MonthlyPass">Local MonthlyPass</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ticket_file">Upload Ticket (PDF, JPEG, PNG, JPG)</label>
+                <input type="file" id="ticket_file" name="ticket_file" accept=".pdf, .jpeg, .jpg, .png" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <!-- Add this section to your add_ticket.html template to display flash messages -->
+
+    </div>
+   
+
+<script>
+    // Function to hide the flash message
+    function hideFlashMessage() {
+      var flashMessages = document.getElementById("flash-messages");
+      if (flashMessages) {
+        flashMessages.style.display = "none";
+      }
+    }
+  
+    // Automatically hide the flash message after 5 seconds (5000 milliseconds)
+    setTimeout(hideFlashMessage, 5000);
+  </script>
+  
+
+</body>
+</html>

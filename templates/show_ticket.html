@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Ticket Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Show Ticket Details</h1>
+        <form action="/show_ticket" method="POST">
+            <div class="form-group">
+                <label for="ticket_id">Ticket ID</label>
+                <input type="text" id="ticket_id" name="ticket_id" required>
+            </div>
+            <button type="submit">Show Ticket Details</button>
+        </form>
+
+        {% if ticket %}
+        <h2>Ticket Details</h2>
+        <table>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Unique ID</td>
+                <td>{{ ticket.unique_id }}</td>
+            </tr>
+            <tr>
+                <td>Traveler Name</td>
+                <td>{{ ticket.traveler_name }}</td>
+            </tr>
+            <tr>
+                <td>Date of Ticket</td>
+                <td>{{ ticket.ticket_date }}</td>
+            </tr>
+            <tr>
+                <td>Time of Departure</td>
+                <td>{{ ticket.departure_time }}</td>
+            </tr>
+            <tr>
+                <td>Source City</td>
+                <td>{{ ticket.source_city }}</td>
+            </tr>
+            <tr>
+                <td>Destination City</td>
+                <td>{{ ticket.destination_city }}</td>
+            </tr>
+            <tr>
+                <td>Mode of Travel</td>
+                <td>{{ ticket.mode_of_travel }}</td>
+            </tr>
+        </table>
+        <br>
+        <a href="{{ url_for('index') }}">Back to Home</a>
+        {% endif %}
+    </div>
+</body>
+</html>
