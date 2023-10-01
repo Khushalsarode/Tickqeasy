@@ -34,7 +34,7 @@ collection = db['tickets']
 app.config["UPLOAD_FOLDER"] = "uploads"
 app.config["ALLOWED_EXTENSIONS"] = {"pdf", "jpeg", "jpg", "png"}
 app.config['UPLOAD_FOLDER'] = 'qr_codes'
-app.config['MAILGUN_API_KEY'] = '6edd3d20c8bd3a86b64e6dc6bfce6c91-4b98b89f-0f68664a'
+app.config['MAILGUN_API_KEY'] = 'apikey'
 app.config['MAILGUN_DOMAIN'] = 'sandboxc833267142b3430d9467639938a14ec4.mailgun.org'
 
 # Limit file size to 1 MB
@@ -254,7 +254,7 @@ def download_ticket(unique_id):
 @app.route('/verify_location', methods=['GET', 'POST'])
 def location():
     # Replace with your TomTom API key
-    api_key = 'x4FADiYE9RJ6GUihpu9izoW3c23ovweX'
+    api_key = 'apikey'
     api_url = 'https://api.tomtom.com/search/2/structuredGeocode.json'
 
     if request.method == 'POST':
