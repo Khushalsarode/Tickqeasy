@@ -35,7 +35,7 @@ app.config["UPLOAD_FOLDER"] = "uploads"
 app.config["ALLOWED_EXTENSIONS"] = {"pdf", "jpeg", "jpg", "png"}
 app.config['UPLOAD_FOLDER'] = 'qr_codes'
 app.config['MAILGUN_API_KEY'] = 'apikey'
-app.config['MAILGUN_DOMAIN'] = 'sandboxc833267142b3430d9467639938a14ec4.mailgun.org'
+app.config['MAILGUN_DOMAIN'] = 'domain'
 
 # Limit file size to 1 MB
 app.config["MAX_CONTENT_LENGTH"] = 1 * 1024 * 1024  # 1 MB
