@@ -212,45 +212,6 @@ def show_ticket():
 
 
 
-
-
-'''@app.route('/download_ticket/<unique_id>', methods=['GET', 'POST'])
-def download_ticket(unique_id):
-    # Fetch the file path from the MongoDB database based on the unique_id
-    file_data = collection.find_one({"unique_id": unique_id})
-
-    if file_data:
-        file_path = file_data.get("ticket_file_path")
-
-        # Create the full path to the file in your project folder
-        full_file_path = os.path.join(app.config['UPLOAD_FOLDER'], file_path)
-
-        # Check if the file exists
-        if os.path.exists(full_file_path):
-            # Determine the file type based on its extension
-            file_extension = os.path.splitext(file_path)[1].lower()
-
-            # Map file extensions to MIME types for proper response headers
-            mime_types = {
-                '.jpg': 'image/jpeg',
-                '.jpeg': 'image/jpeg',
-                '.png': 'image/png',
-                '.pdf': 'application/pdf',
-            }
-
-            # Set the appropriate Content-Type header
-            response_headers = {
-                'Content-Type': mime_types.get(file_extension, 'application/octet-stream')
-            }
-
-            # Send the file as a response
-            return send_file(full_file_path, as_attachment=True, attachment_filename=os.path.basename(file_path), headers=response_headers)
-
-    # If the file is not found, return a 404 error
-    return "File not found", 404
-'''
-
-
 @app.route('/verify_location', methods=['GET', 'POST'])
 def location():
     # Replace with your TomTom API key
